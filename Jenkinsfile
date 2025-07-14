@@ -1,6 +1,6 @@
 # The pipline should be: 
-- Triggered by Push to github main branch.
-- Build and Push your image to your registry.
+# Triggered by Push to github main branch.
+# Build and Push your image to your registry.
 
 pipeline {
     agent any
