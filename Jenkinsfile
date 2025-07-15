@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    triggers {
-        pollSCM('H/2 * * * *') // Optional fallback; webhook preferred for real-time push detection
-    }
+    // triggers {
+    //     pollSCM('H/2 * * * *') // Optional fallback; webhook preferred for real-time push detection
+    // }
 
     environment {
         REGISTRY = "joerozen/my-docker-app-jenkins-1"
