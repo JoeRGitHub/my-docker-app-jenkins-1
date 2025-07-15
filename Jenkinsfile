@@ -22,6 +22,14 @@ pipeline {
             }
         }
 
+        stage('Debug Branch') {
+            steps {
+                script {
+                    echo "Branch: ${env.BRANCH_NAME}"
+                }
+            }
+        }   
+
         stage('Build Docker Image') {
             when {
                 branch 'main'
