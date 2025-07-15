@@ -14,9 +14,9 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            when {
-                branch 'main'
-            }
+            // when {
+            //     branch 'main'
+            // }
             steps {
                 checkout scm
             }
@@ -31,9 +31,9 @@ pipeline {
         }   
 
         stage('Build Docker Image') {
-            when {
-                branch 'main'
-            }
+            // when {
+            //     branch 'main'
+            // }
             steps {
                 script {
                     sh "docker build -t ${REGISTRY}/${IMAGE_NAME}:${TAG} ."
@@ -42,9 +42,9 @@ pipeline {
         }
 
         stage('Push Docker Image') {
-            when {
-                branch 'main'
-            }
+            // when {
+            //     branch 'main'
+            // }
             steps {
                 withCredentials([usernamePassword(credentialsId: env.CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh """
