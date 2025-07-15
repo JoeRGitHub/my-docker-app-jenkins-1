@@ -41,28 +41,28 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
-            // when {
-            //     branch 'main'
-            // }
-            steps {
-                withCredentials([usernamePassword(credentialsId: env.CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
-                    sh """
-                        echo "$DOCKER_PASS" | docker login ${REGISTRY} -u "$DOCKER_USER" --password-stdin
-                        docker push ${REGISTRY}/${IMAGE_NAME}:${TAG}
-                        docker logout ${REGISTRY}
-                    """
-                }
-            }
-        }
-    }
+//         stage('Push Docker Image') {
+//             // when {
+//             //     branch 'main'
+//             // }
+//             steps {
+//                 withCredentials([usernamePassword(credentialsId: env.CREDENTIALS_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+//                     sh """
+//                         echo "$DOCKER_PASS" | docker login ${REGISTRY} -u "$DOCKER_USER" --password-stdin
+//                         docker push ${REGISTRY}/${IMAGE_NAME}:${TAG}
+//                         docker logout ${REGISTRY}
+//                     """
+//                 }
+//             }
+//         }
+//     }
 
-    post {
-        failure {
-            echo "Build failed"
-        }
-        success {
-            echo "Image pushed: ${REGISTRY}/${IMAGE_NAME}:${TAG}"
-        }
-    }
-}
+//     post {
+//         failure {
+//             echo "Build failed"
+//         }
+//         success {
+//             echo "Image pushed: ${REGISTRY}/${IMAGE_NAME}:${TAG}"
+//         }
+//     }
+// }
