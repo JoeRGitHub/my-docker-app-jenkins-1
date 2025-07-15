@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = "joerozen@gmail.com"                       // this is your Docker Hub username
+        REGISTRY = "joerozen"                       // this is your Docker Hub username
         REGISTRY_URL = "https://index.docker.io/v1/"
         IMAGE_NAME = "my-docker-app-jenkins-1"
         TAG = "latest"
